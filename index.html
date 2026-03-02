@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forever — Where Luxury Meets Legacy</title>
+  <meta name="description" content="Forever is a royal luxury hotel offering timeless elegance, bespoke suites, and world-class amenities. Book your stay today." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Icons (Lucide-style via CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ PAGE LOADER ============ -->
+  <div id="page-loader">
+    <div class="loader-crown">&#9819;</div>
+    <div class="loader-text">Forever</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="navbar-brand">Forever<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="images/hero.png" alt="Forever Luxury Hotel exterior at golden hour" id="heroBg" />
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span class="hero-badge">&#9733; Five-Star Royal Experience</span>
+      <h1>Welcome to <span class="gold-text">Forever</span></h1>
+      <p>Where Luxury Meets Legacy — an exquisite sanctuary of royal elegance, timeless grandeur, and unmatched hospitality.</p>
+      <div class="btn-hero">
+        <a href="#contact" class="btn btn-gold">Book Your Stay</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <span class="scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT SECTION ============ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image reveal-left">
+          <img src="images/about.png" alt="Grand hotel lobby with marble staircase and chandeliers" />
+          <div class="gold-frame"></div>
+        </div>
+        <div class="about-text reveal-right">
+          <h2>A Legacy of Royal Luxury</h2>
+          <span class="gold-line"></span>
+          <p>
+            Founded in 1892, Forever stands as a testament to timeless grandeur and impeccable taste.
+            Nestled amidst manicured gardens and classical architecture, our palace hotel has welcomed
+            royalty, dignitaries, and discerning travellers from across the world.
+          </p>
+          <p>
+            Every corner of Forever tells a story — from the hand-painted ceilings of the Grand Ballroom
+            to the whisper-soft linens of our bespoke suites. Here, tradition and modernity intertwine
+            to create experiences that linger long after departure.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <div class="stat-number">130+</div>
+              <div class="stat-label">Years of Heritage</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">250</div>
+              <div class="stat-label">Luxury Suites</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Guest Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ROOMS & SUITES ============ -->
+  <section class="rooms" id="rooms">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Rooms &amp; Suites</h2>
+        <span class="gold-line"></span>
+        <p>Exquisite accommodations designed for unparalleled comfort and royal grandeur.</p>
+      </div>
+
+      <div class="rooms-grid">
+        <!-- Card 1 -->
+        <div class="room-card reveal">
+          <div class="room-card-image">
+            <img src="images/room-deluxe.png" alt="Deluxe king room with city view" />
+            <span class="room-price">From $450/night</span>
+          </div>
+          <div class="room-card-body">
+            <h3>Deluxe King Room</h3>
+            <p>Spacious elegance with city panoramas, plush furnishings, and curated art pieces in warm ivory and gold tones.</p>
+            <a href="#contact" class="btn btn-outline">View Details</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="room-card reveal">
+          <div class="room-card-image">
+            <img src="images/room-royal-suite.png" alt="Royal suite with four-poster bed" />
+            <span class="room-price">From $850/night</span>
+          </div>
+          <div class="room-card-body">
+            <h3>The Royal Suite</h3>
+            <p>A regal retreat with hand-embroidered silks, a crystal chandelier, emerald velvet seating, and a private terrace.</p>
+            <a href="#contact" class="btn btn-outline">View Details</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="room-card reveal">
+          <div class="room-card-image">
+            <img src="images/room-presidential.png" alt="Presidential suite living area" />
+            <span class="room-price">From $1,800/night</span>
+          </div>
+          <div class="room-card-body">
+            <h3>Presidential Suite</h3>
+            <p>The pinnacle of opulence — palatial living spaces, a grand piano, private bar, and sweeping garden views.</p>
+            <a href="#contact" class="btn btn-outline">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AMENITIES ============ -->
+  <section class="amenities" id="amenities">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>World-Class Amenities</h2>
+        <span class="gold-line"></span>
+        <p>Indulge in an array of exclusive facilities curated for the most discerning guests.</p>
+      </div>
+
+      <div class="amenities-grid">
+        <div class="amenity-card reveal">
+          <div class="amenity-icon"><i class="fa-solid fa-spa"></i></div>
+          <h3>Royal Spa</h3>
+          <p>Rejuvenate with bespoke treatments in our serene wellness sanctuary.</p>
+        </div>
+        <div class="amenity-card reveal">
+          <div class="amenity-icon"><i class="fa-solid fa-utensils"></i></div>
+          <h3>Royal Dining</h3>
+          <p>Michelin-starred cuisine in an opulent candlelit setting.</p>
+        </div>
+        <div class="amenity-card reveal">
+          <div class="amenity-icon"><i class="fa-solid fa-water-ladder"></i></div>
+          <h3>Infinity Pool</h3>
+          <p>A stunning rooftop pool with panoramic sunset vistas.</p>
+        </div>
+        <div class="amenity-card reveal">
+          <div class="amenity-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+          <h3>Grand Ballroom</h3>
+          <p>Host unforgettable galas in our gilded, cathedral-ceiling ballroom.</p>
+        </div>
+        <div class="amenity-card reveal">
+          <div class="amenity-icon"><i class="fa-solid fa-bed"></i></div>
+          <h3>Private Suites</h3>
+          <p>Exclusive retreats with personal butler and concierge service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Gallery</h2>
+        <span class="gold-line"></span>
+        <p>A glimpse into the world of Forever — where every detail is a masterpiece.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item reveal" data-index="0">
+          <img src="images/hero.png" alt="Hotel exterior at golden hour" />
+          <span class="gallery-label">Grand Exterior</span>
+        </div>
+        <div class="gallery-item reveal" data-index="1">
+          <img src="images/about.png" alt="Opulent hotel lobby" />
+          <span class="gallery-label">The Grand Lobby</span>
+        </div>
+        <div class="gallery-item reveal" data-index="2">
+          <img src="images/room-royal-suite.png" alt="Royal suite bedroom" />
+          <span class="gallery-label">Royal Suite</span>
+        </div>
+        <div class="gallery-item reveal" data-index="3">
+          <img src="images/gallery-spa.png" alt="Luxury spa interior" />
+          <span class="gallery-label">Wellness Spa</span>
+        </div>
+        <div class="gallery-item reveal" data-index="4">
+          <img src="images/room-presidential.png" alt="Presidential suite living area" />
+          <span class="gallery-label">Presidential Suite</span>
+        </div>
+        <div class="gallery-item reveal" data-index="5">
+          <img src="images/room-deluxe.png" alt="Deluxe room interior" />
+          <span class="gallery-label">Deluxe Room</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Gallery full view" />
+    <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
+  </div>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Guest Reviews</h2>
+        <span class="gold-line"></span>
+        <p>Hear what our distinguished guests have to say about their stay.</p>
+      </div>
+
+      <div class="testimonial-slider">
+        <div class="testimonial-track">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="testimonial-quote">"Forever is not merely a hotel — it is an experience of a lifetime. The grandeur, the service, the attention to detail… everything exceeded our wildest expectations."</p>
+            <div class="testimonial-author">Lady Evelyn Ashworth</div>
+            <div class="testimonial-role">London, United Kingdom</div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="testimonial-quote">"From the moment we stepped into the lobby, we were transported to another era. The Presidential Suite was utterly magnificent. We shall return."</p>
+            <div class="testimonial-author">Ambassador James Kensington</div>
+            <div class="testimonial-role">New York, United States</div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="testimonial-quote">"The Royal Spa is heavenly, and the dining experience was world-class. Forever truly lives up to its name — the memories will last forever."</p>
+            <div class="testimonial-author">Duchess Marie-Claire Beaumont</div>
+            <div class="testimonial-role">Paris, France</div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="testimonial-quote">"An absolute masterpiece of hospitality. The staff anticipated our every need, and the gardens rivalled the finest in Europe. Unparalleled luxury."</p>
+            <div class="testimonial-author">Sheikh Hassan Al-Rashid</div>
+            <div class="testimonial-role">Dubai, UAE</div>
+          </div>
+        </div>
+
+        <div class="testimonial-dots" id="testimonialDots">
+          <button class="testimonial-dot active" data-slide="0"></button>
+          <button class="testimonial-dot" data-slide="1"></button>
+          <button class="testimonial-dot" data-slide="2"></button>
+          <button class="testimonial-dot" data-slide="3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT & BOOKING ============ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Book Your Stay</h2>
+        <span class="gold-line"></span>
+        <p>Begin your royal experience — reserve your suite at Forever today.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Info Column -->
+        <div class="contact-info reveal-left">
+          <h3>Get in Touch</h3>
+          <p>Our dedicated concierge team is available around the clock to assist you with reservations, special requests, and bespoke experiences.</p>
+          <div class="contact-detail">
+            <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+            <span>42 Royal Crescent, Mayfair, London W1K 3PA</span>
+          </div>
+          <div class="contact-detail">
+            <div class="icon"><i class="fa-solid fa-phone"></i></div>
+            <span>+44 (0)20 7946 0958</span>
+          </div>
+          <div class="contact-detail">
+            <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+            <span>reservations@foreverhotel.com</span>
+          </div>
+          <div class="contact-detail">
+            <div class="icon"><i class="fa-solid fa-clock"></i></div>
+            <span>Concierge available 24/7</span>
+          </div>
+        </div>
+
+        <!-- Booking Form -->
+        <form class="booking-form reveal-right" id="bookingForm" novalidate>
+          <h3>Reserve Your Suite</h3>
+
+          <div class="form-group">
+            <label for="guestName">Full Name</label>
+            <input type="text" id="guestName" placeholder="e.g. James Kensington" required />
+            <span class="error-msg">Please enter your full name</span>
+          </div>
+
+          <div class="form-group">
+            <label for="guestEmail">Email Address</label>
+            <input type="email" id="guestEmail" placeholder="e.g. james@example.com" required />
+            <span class="error-msg">Please enter a valid email address</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkIn">Check-in Date</label>
+              <input type="date" id="checkIn" required />
+              <span class="error-msg">Select a check-in date</span>
+            </div>
+            <div class="form-group">
+              <label for="checkOut">Check-out Date</label>
+              <input type="date" id="checkOut" required />
+              <span class="error-msg">Select a check-out date</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <select id="guests" required>
+              <option value="">Select guests</option>
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5+ Guests</option>
+            </select>
+            <span class="error-msg">Please select number of guests</span>
+          </div>
+
+          <button type="submit" class="btn btn-gold">Confirm Reservation</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Forever<span>.</span></h3>
+          <p>A royal sanctuary of timeless elegance. Established 1892, Forever continues to set the gold standard in luxury hospitality.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#rooms">Rooms</a></li>
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Royal Spa</a></li>
+            <li><a href="#">Fine Dining</a></li>
+            <li><a href="#">Private Events</a></li>
+            <li><a href="#">Airport Transfer</a></li>
+            <li><a href="#">Concierge</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Policies</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cancellation</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 <span class="gold">Forever</span>. All rights reserved. Crafted with elegance.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
