@@ -1,438 +1,591 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Forever — Where Luxury Meets Legacy</title>
-  <meta name="description" content="Forever is a royal luxury hotel offering timeless elegance, bespoke suites, and world-class amenities. Book your stay today." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="FRAGRANCE — A luxury flower shop where every bloom tells a story. Explore our exquisite bouquets, elegant arrangements, and floral gifts for every occasion.">
+    <title>FRAGRANCE — Premium Flower Shop</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&family=Great+Vibes&display=swap"
+        rel="stylesheet">
 
-  <!-- Icons (Lucide-style via CDN) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-  <!-- ============ PAGE LOADER ============ -->
-  <div id="page-loader">
-    <div class="loader-crown">&#9819;</div>
-    <div class="loader-text">Forever</div>
-    <div class="loader-bar"></div>
-  </div>
-
-  <!-- ============ NAVBAR ============ -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a href="#" class="navbar-brand">Forever<span>.</span></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#rooms">Rooms</a></li>
-        <li><a href="#amenities">Amenities</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ============ HERO SECTION ============ -->
-  <section class="hero" id="home">
-    <div class="hero-bg">
-      <img src="images/hero.png" alt="Forever Luxury Hotel exterior at golden hour" id="heroBg" />
-    </div>
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-      <span class="hero-badge">&#9733; Five-Star Royal Experience</span>
-      <h1>Welcome to <span class="gold-text">Forever</span></h1>
-      <p>Where Luxury Meets Legacy — an exquisite sanctuary of royal elegance, timeless grandeur, and unmatched hospitality.</p>
-      <div class="btn-hero">
-        <a href="#contact" class="btn btn-gold">Book Your Stay</a>
-      </div>
-    </div>
-
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <span class="scroll-line"></span>
-    </div>
-  </section>
-
-  <!-- ============ ABOUT SECTION ============ -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-image reveal-left">
-          <img src="images/about.png" alt="Grand hotel lobby with marble staircase and chandeliers" />
-          <div class="gold-frame"></div>
-        </div>
-        <div class="about-text reveal-right">
-          <h2>A Legacy of Royal Luxury</h2>
-          <span class="gold-line"></span>
-          <p>
-            Founded in 1892, Forever stands as a testament to timeless grandeur and impeccable taste.
-            Nestled amidst manicured gardens and classical architecture, our palace hotel has welcomed
-            royalty, dignitaries, and discerning travellers from across the world.
-          </p>
-          <p>
-            Every corner of Forever tells a story — from the hand-painted ceilings of the Grand Ballroom
-            to the whisper-soft linens of our bespoke suites. Here, tradition and modernity intertwine
-            to create experiences that linger long after departure.
-          </p>
-          <div class="about-stats">
-            <div class="stat">
-              <div class="stat-number">130+</div>
-              <div class="stat-label">Years of Heritage</div>
+    <!-- ===== PAGE LOADER ===== -->
+    <div id="page-loader">
+        <div class="loader-content">
+            <span class="loader-flower">🌸</span>
+            <h2 class="loader-brand">FRAGRANCE</h2>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
             </div>
-            <div class="stat">
-              <div class="stat-number">250</div>
-              <div class="stat-label">Luxury Suites</div>
+        </div>
+    </div>
+
+    <!-- ===== FLOATING PETALS CONTAINER ===== -->
+    <div id="petals-container" aria-hidden="true"></div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">🌷</span>
+                <span class="logo-text">FRAGRANCE</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#bouquets">Bouquets</a></li>
+                <li><a href="#occasions">Occasions</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-tagline">✿ Est. 2020 — Luxury Florals ✿</p>
+            <h1 class="hero-title">Welcome to <span class="script-text">Fragrance</span></h1>
+            <p class="hero-subtitle">Where Every Bloom Tells a Story</p>
+            <a href="#bouquets" class="btn btn-primary hero-btn">Shop the Collection</a>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="section">
+        <div class="container about-grid">
+            <div class="about-image reveal-left">
+                <img src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&h=750&fit=crop&q=80"
+                    alt="FRAGRANCE flower shop interior" loading="lazy">
+                <div class="about-image-accent"></div>
             </div>
-            <div class="stat">
-              <div class="stat-number">98%</div>
-              <div class="stat-label">Guest Satisfaction</div>
+            <div class="about-text reveal-right">
+                <span class="section-label">Our Story</span>
+                <h2 class="section-title">Crafted with <span class="script-text">Passion</span></h2>
+                <p>At FRAGRANCE, we believe that flowers are more than just petals — they are emotions wrapped in
+                    nature's most exquisite art. Every bouquet we create is a masterpiece, hand-arranged by our talented
+                    florists using only the freshest, most beautiful blooms sourced from the finest gardens around the
+                    world.</p>
+                <p>Founded on a love for botanical elegance, FRAGRANCE has become the go-to destination for those who
+                    seek the extraordinary. From intimate gestures to grand celebrations, we transform moments into
+                    memories that blossom forever.</p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-target="5000">0</span>
+                        <span class="stat-label">Bouquets Delivered</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="200">0</span>
+                        <span class="stat-label">Unique Designs</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="98">0</span>
+                        <span class="stat-label">% Happy Clients</span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============ ROOMS & SUITES ============ -->
-  <section class="rooms" id="rooms">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Rooms &amp; Suites</h2>
-        <span class="gold-line"></span>
-        <p>Exquisite accommodations designed for unparalleled comfort and royal grandeur.</p>
-      </div>
-
-      <div class="rooms-grid">
-        <!-- Card 1 -->
-        <div class="room-card reveal">
-          <div class="room-card-image">
-            <img src="images/room-deluxe.png" alt="Deluxe king room with city view" />
-            <span class="room-price">From $450/night</span>
-          </div>
-          <div class="room-card-body">
-            <h3>Deluxe King Room</h3>
-            <p>Spacious elegance with city panoramas, plush furnishings, and curated art pieces in warm ivory and gold tones.</p>
-            <a href="#contact" class="btn btn-outline">View Details</a>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="room-card reveal">
-          <div class="room-card-image">
-            <img src="images/room-royal-suite.png" alt="Royal suite with four-poster bed" />
-            <span class="room-price">From $850/night</span>
-          </div>
-          <div class="room-card-body">
-            <h3>The Royal Suite</h3>
-            <p>A regal retreat with hand-embroidered silks, a crystal chandelier, emerald velvet seating, and a private terrace.</p>
-            <a href="#contact" class="btn btn-outline">View Details</a>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="room-card reveal">
-          <div class="room-card-image">
-            <img src="images/room-presidential.png" alt="Presidential suite living area" />
-            <span class="room-price">From $1,800/night</span>
-          </div>
-          <div class="room-card-body">
-            <h3>Presidential Suite</h3>
-            <p>The pinnacle of opulence — palatial living spaces, a grand piano, private bar, and sweeping garden views.</p>
-            <a href="#contact" class="btn btn-outline">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ AMENITIES ============ -->
-  <section class="amenities" id="amenities">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>World-Class Amenities</h2>
-        <span class="gold-line"></span>
-        <p>Indulge in an array of exclusive facilities curated for the most discerning guests.</p>
-      </div>
-
-      <div class="amenities-grid">
-        <div class="amenity-card reveal">
-          <div class="amenity-icon"><i class="fa-solid fa-spa"></i></div>
-          <h3>Royal Spa</h3>
-          <p>Rejuvenate with bespoke treatments in our serene wellness sanctuary.</p>
-        </div>
-        <div class="amenity-card reveal">
-          <div class="amenity-icon"><i class="fa-solid fa-utensils"></i></div>
-          <h3>Royal Dining</h3>
-          <p>Michelin-starred cuisine in an opulent candlelit setting.</p>
-        </div>
-        <div class="amenity-card reveal">
-          <div class="amenity-icon"><i class="fa-solid fa-water-ladder"></i></div>
-          <h3>Infinity Pool</h3>
-          <p>A stunning rooftop pool with panoramic sunset vistas.</p>
-        </div>
-        <div class="amenity-card reveal">
-          <div class="amenity-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
-          <h3>Grand Ballroom</h3>
-          <p>Host unforgettable galas in our gilded, cathedral-ceiling ballroom.</p>
-        </div>
-        <div class="amenity-card reveal">
-          <div class="amenity-icon"><i class="fa-solid fa-bed"></i></div>
-          <h3>Private Suites</h3>
-          <p>Exclusive retreats with personal butler and concierge service.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ GALLERY ============ -->
-  <section class="gallery" id="gallery">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Gallery</h2>
-        <span class="gold-line"></span>
-        <p>A glimpse into the world of Forever — where every detail is a masterpiece.</p>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-item reveal" data-index="0">
-          <img src="images/hero.png" alt="Hotel exterior at golden hour" />
-          <span class="gallery-label">Grand Exterior</span>
-        </div>
-        <div class="gallery-item reveal" data-index="1">
-          <img src="images/about.png" alt="Opulent hotel lobby" />
-          <span class="gallery-label">The Grand Lobby</span>
-        </div>
-        <div class="gallery-item reveal" data-index="2">
-          <img src="images/room-royal-suite.png" alt="Royal suite bedroom" />
-          <span class="gallery-label">Royal Suite</span>
-        </div>
-        <div class="gallery-item reveal" data-index="3">
-          <img src="images/gallery-spa.png" alt="Luxury spa interior" />
-          <span class="gallery-label">Wellness Spa</span>
-        </div>
-        <div class="gallery-item reveal" data-index="4">
-          <img src="images/room-presidential.png" alt="Presidential suite living area" />
-          <span class="gallery-label">Presidential Suite</span>
-        </div>
-        <div class="gallery-item reveal" data-index="5">
-          <img src="images/room-deluxe.png" alt="Deluxe room interior" />
-          <span class="gallery-label">Deluxe Room</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Lightbox Overlay -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">&times;</button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
-    <img class="lightbox-img" id="lightboxImg" src="" alt="Gallery full view" />
-    <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
-  </div>
-
-  <!-- ============ TESTIMONIALS ============ -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Guest Reviews</h2>
-        <span class="gold-line"></span>
-        <p>Hear what our distinguished guests have to say about their stay.</p>
-      </div>
-
-      <div class="testimonial-slider">
-        <div class="testimonial-track">
-          <!-- Slide 1 -->
-          <div class="testimonial-slide active">
-            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-            <p class="testimonial-quote">"Forever is not merely a hotel — it is an experience of a lifetime. The grandeur, the service, the attention to detail… everything exceeded our wildest expectations."</p>
-            <div class="testimonial-author">Lady Evelyn Ashworth</div>
-            <div class="testimonial-role">London, United Kingdom</div>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="testimonial-slide">
-            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-            <p class="testimonial-quote">"From the moment we stepped into the lobby, we were transported to another era. The Presidential Suite was utterly magnificent. We shall return."</p>
-            <div class="testimonial-author">Ambassador James Kensington</div>
-            <div class="testimonial-role">New York, United States</div>
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="testimonial-slide">
-            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-            <p class="testimonial-quote">"The Royal Spa is heavenly, and the dining experience was world-class. Forever truly lives up to its name — the memories will last forever."</p>
-            <div class="testimonial-author">Duchess Marie-Claire Beaumont</div>
-            <div class="testimonial-role">Paris, France</div>
-          </div>
-
-          <!-- Slide 4 -->
-          <div class="testimonial-slide">
-            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-            <p class="testimonial-quote">"An absolute masterpiece of hospitality. The staff anticipated our every need, and the gardens rivalled the finest in Europe. Unparalleled luxury."</p>
-            <div class="testimonial-author">Sheikh Hassan Al-Rashid</div>
-            <div class="testimonial-role">Dubai, UAE</div>
-          </div>
-        </div>
-
-        <div class="testimonial-dots" id="testimonialDots">
-          <button class="testimonial-dot active" data-slide="0"></button>
-          <button class="testimonial-dot" data-slide="1"></button>
-          <button class="testimonial-dot" data-slide="2"></button>
-          <button class="testimonial-dot" data-slide="3"></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT & BOOKING ============ -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Book Your Stay</h2>
-        <span class="gold-line"></span>
-        <p>Begin your royal experience — reserve your suite at Forever today.</p>
-      </div>
-
-      <div class="contact-grid">
-        <!-- Info Column -->
-        <div class="contact-info reveal-left">
-          <h3>Get in Touch</h3>
-          <p>Our dedicated concierge team is available around the clock to assist you with reservations, special requests, and bespoke experiences.</p>
-          <div class="contact-detail">
-            <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
-            <span>42 Royal Crescent, Mayfair, London W1K 3PA</span>
-          </div>
-          <div class="contact-detail">
-            <div class="icon"><i class="fa-solid fa-phone"></i></div>
-            <span>+44 (0)20 7946 0958</span>
-          </div>
-          <div class="contact-detail">
-            <div class="icon"><i class="fa-solid fa-envelope"></i></div>
-            <span>reservations@foreverhotel.com</span>
-          </div>
-          <div class="contact-detail">
-            <div class="icon"><i class="fa-solid fa-clock"></i></div>
-            <span>Concierge available 24/7</span>
-          </div>
-        </div>
-
-        <!-- Booking Form -->
-        <form class="booking-form reveal-right" id="bookingForm" novalidate>
-          <h3>Reserve Your Suite</h3>
-
-          <div class="form-group">
-            <label for="guestName">Full Name</label>
-            <input type="text" id="guestName" placeholder="e.g. James Kensington" required />
-            <span class="error-msg">Please enter your full name</span>
-          </div>
-
-          <div class="form-group">
-            <label for="guestEmail">Email Address</label>
-            <input type="email" id="guestEmail" placeholder="e.g. james@example.com" required />
-            <span class="error-msg">Please enter a valid email address</span>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="checkIn">Check-in Date</label>
-              <input type="date" id="checkIn" required />
-              <span class="error-msg">Select a check-in date</span>
+    <!-- ===== FEATURED BOUQUETS ===== -->
+    <section id="bouquets" class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-label">Our Collection</span>
+                <h2 class="section-title">Featured <span class="script-text">Bouquets</span></h2>
+                <p class="section-desc">Handcrafted arrangements that capture the essence of every emotion</p>
             </div>
-            <div class="form-group">
-              <label for="checkOut">Check-out Date</label>
-              <input type="date" id="checkOut" required />
-              <span class="error-msg">Select a check-out date</span>
+            <div class="bouquets-grid">
+                <!-- Bouquet 1 -->
+                <div class="bouquet-card reveal-up">
+                    <div class="bouquet-image">
+                        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=400&h=500&fit=crop&q=80"
+                            alt="Blushing Rose Bouquet" loading="lazy">
+                        <span class="bouquet-badge">Bestseller</span>
+                    </div>
+                    <div class="bouquet-info">
+                        <h3>Blushing Rose</h3>
+                        <p class="bouquet-desc">24 premium pink roses with baby's breath</p>
+                        <div class="bouquet-footer">
+                            <span class="bouquet-price">$89.99</span>
+                            <button class="btn btn-cart" data-name="Blushing Rose" data-price="89.99">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bouquet 2 -->
+                <div class="bouquet-card reveal-up">
+                    <div class="bouquet-image">
+                        <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=400&h=500&fit=crop&q=80"
+                            alt="Lavender Dreams Bouquet" loading="lazy">
+                        <span class="bouquet-badge new">New</span>
+                    </div>
+                    <div class="bouquet-info">
+                        <h3>Lavender Dreams</h3>
+                        <p class="bouquet-desc">Lavender, white roses & eucalyptus greens</p>
+                        <div class="bouquet-footer">
+                            <span class="bouquet-price">$74.99</span>
+                            <button class="btn btn-cart" data-name="Lavender Dreams" data-price="74.99">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bouquet 3 -->
+                <div class="bouquet-card reveal-up">
+                    <div class="bouquet-image">
+                        <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=400&h=500&fit=crop&q=80"
+                            alt="Peony Bliss Bouquet" loading="lazy">
+                    </div>
+                    <div class="bouquet-info">
+                        <h3>Peony Bliss</h3>
+                        <p class="bouquet-desc">Mixed peonies in blush, cream & soft pink</p>
+                        <div class="bouquet-footer">
+                            <span class="bouquet-price">$109.99</span>
+                            <button class="btn btn-cart" data-name="Peony Bliss" data-price="109.99">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bouquet 4 -->
+                <div class="bouquet-card reveal-up">
+                    <div class="bouquet-image">
+                        <img src="https://images.unsplash.com/photo-1495231916356-a86217efff12?w=400&h=500&fit=crop&q=80"
+                            alt="Golden Sunset Bouquet" loading="lazy">
+                    </div>
+                    <div class="bouquet-info">
+                        <h3>Golden Sunset</h3>
+                        <p class="bouquet-desc">Sunflowers, roses & autumn foliage blend</p>
+                        <div class="bouquet-footer">
+                            <span class="bouquet-price">$69.99</span>
+                            <button class="btn btn-cart" data-name="Golden Sunset" data-price="69.99">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bouquet 5 -->
+                <div class="bouquet-card reveal-up">
+                    <div class="bouquet-image">
+                        <img src="https://images.unsplash.com/photo-1574180045827-681f8a1a9622?w=400&h=500&fit=crop&q=80"
+                            alt="Ivory Elegance Bouquet" loading="lazy">
+                        <span class="bouquet-badge">Popular</span>
+                    </div>
+                    <div class="bouquet-info">
+                        <h3>Ivory Elegance</h3>
+                        <p class="bouquet-desc">White lilies, orchids & delicate greens</p>
+                        <div class="bouquet-footer">
+                            <span class="bouquet-price">$94.99</span>
+                            <button class="btn btn-cart" data-name="Ivory Elegance" data-price="94.99">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bouquet 6 -->
+                <div class="bouquet-card reveal-up">
+                    <div class="bouquet-image">
+                        <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=400&h=500&fit=crop&q=80"
+                            alt="Wildflower Romance Bouquet" loading="lazy">
+                        <span class="bouquet-badge new">New</span>
+                    </div>
+                    <div class="bouquet-info">
+                        <h3>Wildflower Romance</h3>
+                        <p class="bouquet-desc">Rustic wildflowers with a boho charm</p>
+                        <div class="bouquet-footer">
+                            <span class="bouquet-price">$64.99</span>
+                            <button class="btn btn-cart" data-name="Wildflower Romance" data-price="64.99">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+        </div>
+    </section>
 
-          <div class="form-group">
-            <label for="guests">Number of Guests</label>
-            <select id="guests" required>
-              <option value="">Select guests</option>
-              <option value="1">1 Guest</option>
-              <option value="2">2 Guests</option>
-              <option value="3">3 Guests</option>
-              <option value="4">4 Guests</option>
-              <option value="5">5+ Guests</option>
-            </select>
-            <span class="error-msg">Please select number of guests</span>
-          </div>
+    <!-- ===== SHOP BY OCCASION ===== -->
+    <section id="occasions" class="section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-label">Perfect For Every Moment</span>
+                <h2 class="section-title">Shop by <span class="script-text">Occasion</span></h2>
+                <p class="section-desc">Find the perfect arrangement to match any celebration</p>
+            </div>
+            <div class="occasions-grid">
+                <div class="occasion-card reveal-up" style="--delay: 0s">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=500&fit=crop&q=80"
+                        alt="Birthday Flowers" loading="lazy">
+                    <div class="occasion-overlay">
+                        <span class="occasion-icon">🎂</span>
+                        <h3>Birthday</h3>
+                        <p>Celebrate with vibrant blooms</p>
+                        <a href="#contact" class="btn btn-outline-light">Shop Now</a>
+                    </div>
+                </div>
+                <div class="occasion-card reveal-up" style="--delay: 0.1s">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=500&fit=crop&q=80"
+                        alt="Wedding Flowers" loading="lazy">
+                    <div class="occasion-overlay">
+                        <span class="occasion-icon">💒</span>
+                        <h3>Wedding</h3>
+                        <p>Elegant bridal arrangements</p>
+                        <a href="#contact" class="btn btn-outline-light">Shop Now</a>
+                    </div>
+                </div>
+                <div class="occasion-card reveal-up" style="--delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&h=500&fit=crop&q=80"
+                        alt="Anniversary Flowers" loading="lazy">
+                    <div class="occasion-overlay">
+                        <span class="occasion-icon">💍</span>
+                        <h3>Anniversary</h3>
+                        <p>Mark the milestone in petals</p>
+                        <a href="#contact" class="btn btn-outline-light">Shop Now</a>
+                    </div>
+                </div>
+                <div class="occasion-card reveal-up" style="--delay: 0.3s">
+                    <img src="https://images.unsplash.com/photo-1518621736903-86a599c32e18?w=400&h=500&fit=crop&q=80"
+                        alt="Love and Romance Flowers" loading="lazy">
+                    <div class="occasion-overlay">
+                        <span class="occasion-icon">❤️</span>
+                        <h3>Love & Romance</h3>
+                        <p>Say it with passionate blooms</p>
+                        <a href="#contact" class="btn btn-outline-light">Shop Now</a>
+                    </div>
+                </div>
+                <div class="occasion-card reveal-up" style="--delay: 0.4s">
+                    <img src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=400&h=500&fit=crop&q=80"
+                        alt="Sympathy Flowers" loading="lazy">
+                    <div class="occasion-overlay">
+                        <span class="occasion-icon">🕊️</span>
+                        <h3>Sympathy</h3>
+                        <p>Gentle tributes with grace</p>
+                        <a href="#contact" class="btn btn-outline-light">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-          <button type="submit" class="btn btn-gold">Confirm Reservation</button>
-        </form>
-      </div>
+    <!-- ===== SPECIAL OFFERS ===== -->
+    <section id="offers" class="section offers-section">
+        <div class="offers-bg-overlay"></div>
+        <div class="container offers-content reveal-up">
+            <span class="section-label light">Limited Time Only</span>
+            <h2 class="section-title light">Spring <span class="script-text">Sale</span></h2>
+            <p class="offers-text">Get <strong>25% off</strong> all handcrafted bouquets this season. Use code <span
+                    class="offer-code">BLOOM25</span> at checkout.</p>
+            <a href="#bouquets" class="btn btn-glow">Shop the Sale ✨</a>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-label">Visual Inspiration</span>
+                <h2 class="section-title">Our <span class="script-text">Gallery</span></h2>
+                <p class="section-desc">A curated collection of our most enchanting creations</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal-up"
+                    data-full="https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=1200&q=85">
+                    <img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=500&h=500&fit=crop&q=80"
+                        alt="Rose arrangement" loading="lazy">
+                    <div class="gallery-overlay"><span>🔍</span></div>
+                </div>
+                <div class="gallery-item reveal-up"
+                    data-full="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=1200&q=85">
+                    <img src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=500&h=500&fit=crop&q=80"
+                        alt="Flower shop display" loading="lazy">
+                    <div class="gallery-overlay"><span>🔍</span></div>
+                </div>
+                <div class="gallery-item reveal-up"
+                    data-full="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=1200&q=85">
+                    <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=500&h=500&fit=crop&q=80"
+                        alt="Tulip collection" loading="lazy">
+                    <div class="gallery-overlay"><span>🔍</span></div>
+                </div>
+                <div class="gallery-item reveal-up"
+                    data-full="https://images.unsplash.com/photo-1478217655589-a83c55a38875?w=1200&q=85">
+                    <img src="https://images.unsplash.com/photo-1478217655589-a83c55a38875?w=500&h=500&fit=crop&q=80"
+                        alt="Pink peonies" loading="lazy">
+                    <div class="gallery-overlay"><span>🔍</span></div>
+                </div>
+                <div class="gallery-item reveal-up"
+                    data-full="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1200&q=85">
+                    <img src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=500&h=500&fit=crop&q=80"
+                        alt="White lilies" loading="lazy">
+                    <div class="gallery-overlay"><span>🔍</span></div>
+                </div>
+                <div class="gallery-item reveal-up"
+                    data-full="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=1200&q=85">
+                    <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=500&h=500&fit=crop&q=80"
+                        alt="Red roses bouquet" loading="lazy">
+                    <div class="gallery-overlay"><span>🔍</span></div>
+                </div>
+                <div class="gallery-item reveal-up"
+                    data-full="https://images.unsplash.com/photo-1567696911980-2eed69a46042?w=1200&q=85">
+                    <img src="https://images.unsplash.com/photo-1567696911980-2eed69a46042?w=500&h=500&fit=crop&q=80"
+                        alt="Pastel bouquet" loading="lazy">
+                    <div class="gallery-overlay"><span>🔍</span></div>
+                </div>
+                <div class="gallery-item reveal-up"
+                    data-full="https://images.unsplash.com/photo-1457089328109-e5d9bd499191?w=1200&q=85">
+                    <img src="https://images.unsplash.com/photo-1457089328109-e5d9bd499191?w=500&h=500&fit=crop&q=80"
+                        alt="Garden flowers" loading="lazy">
+                    <div class="gallery-overlay"><span>🔍</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
+        <button class="lightbox-next" aria-label="Next image">&#10095;</button>
+        <img id="lightbox-img" src="" alt="Gallery full view">
     </div>
-  </section>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h3>Forever<span>.</span></h3>
-          <p>A royal sanctuary of timeless elegance. Established 1892, Forever continues to set the gold standard in luxury hospitality.</p>
-          <div class="footer-social">
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
-          </div>
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-label">What They Say</span>
+                <h2 class="section-title">Client <span class="script-text">Love</span></h2>
+            </div>
+            <div class="testimonial-slider reveal-up">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"FRAGRANCE delivered the most breathtaking bridal bouquet I could
+                            have ever imagined. Every petal was perfection. Our wedding photos are stunning thanks to
+                            their artistry!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&q=80"
+                                alt="Sophie Laurent" loading="lazy">
+                            <div>
+                                <h4>Sophie Laurent</h4>
+                                <span>Bride — June 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"I order from FRAGRANCE every month for my office, and the
+                            arrangements always spark joy and conversation. Their attention to detail is unmatched."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&q=80"
+                                alt="Marcus Rivera" loading="lazy">
+                            <div>
+                                <h4>Marcus Rivera</h4>
+                                <span>Business Owner</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Sent a surprise anniversary bouquet to my wife – she was in tears
+                            of happiness. FRAGRANCE truly knows how to turn flowers into feelings. Absolutely magical!"
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&q=80"
+                                alt="Daniel Chen" loading="lazy">
+                            <div>
+                                <h4>Daniel Chen</h4>
+                                <span>Loyal Customer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"The sympathy arrangement FRAGRANCE created was incredibly touching
+                            and beautiful. It brought comfort during a difficult time. Thank you for your sensitivity
+                            and care."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&q=80"
+                                alt="Emily Whitfield" loading="lazy">
+                            <div>
+                                <h4>Emily Whitfield</h4>
+                                <span>Grateful Client</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-dots" id="testimonial-dots"></div>
+            </div>
         </div>
+    </section>
 
-        <div>
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#rooms">Rooms</a></li>
-            <li><a href="#amenities">Amenities</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-          </ul>
+    <!-- ===== CONTACT & ORDER ===== -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-title">Contact & <span class="script-text">Order</span></h2>
+                <p class="section-desc">Place your order or reach out — we'd love to hear from you</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <div class="contact-info-card">
+                        <span class="contact-icon">📍</span>
+                        <h3>Visit Our Studio</h3>
+                        <p>123 Blossom Lane, Rose District<br>New York, NY 10012</p>
+                    </div>
+                    <div class="contact-info-card">
+                        <span class="contact-icon">🕐</span>
+                        <h3>Studio Hours</h3>
+                        <p>Mon – Fri: 9 AM – 7 PM<br>Sat – Sun: 10 AM – 5 PM</p>
+                    </div>
+                    <div class="contact-info-card">
+                        <span class="contact-icon">📞</span>
+                        <h3>Reach Us</h3>
+                        <p>Phone: (212) 555-BLOOM<br>Email: hello@fragrance.com</p>
+                    </div>
+                    <div class="contact-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.3!2d-74.0!3d40.73!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQzJzQ4LjAiTiA3NMKwMDAnMDAuMCJX!5e0!3m2!1sen!2sus!4v1"
+                            width="100%" height="200" style="border:0; border-radius: 12px;" allowfullscreen=""
+                            loading="lazy" title="FRAGRANCE location"></iframe>
+                    </div>
+                </div>
+                <form class="contact-form reveal-right" id="order-form" novalidate>
+                    <h3 class="form-title">Place Your Order 🌸</h3>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your beautiful name" required>
+                        <span class="form-error" id="name-error"></span>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            <span class="form-error" id="email-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                            <span class="form-error" id="phone-error"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="delivery-date">Delivery Date</label>
+                        <input type="date" id="delivery-date" name="delivery-date" required>
+                        <span class="form-error" id="date-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Special Message</label>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Your heartfelt message to include with the arrangement..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Send Order Request 💐</button>
+                    <div class="form-success" id="form-success">
+                        <span>🌸</span>
+                        <p>Thank you! Your order request has been received. We'll contact you shortly to confirm your
+                            beautiful arrangement.</p>
+                    </div>
+                </form>
+            </div>
         </div>
+    </section>
 
-        <div>
-          <h4>Services</h4>
-          <ul>
-            <li><a href="#">Royal Spa</a></li>
-            <li><a href="#">Fine Dining</a></li>
-            <li><a href="#">Private Events</a></li>
-            <li><a href="#">Airport Transfer</a></li>
-            <li><a href="#">Concierge</a></li>
-          </ul>
+    <!-- ===== FOOTER ===== -->
+    <footer id="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#hero" class="footer-logo">
+                    <span class="logo-icon">🌷</span>
+                    <span class="logo-text">FRAGRANCE</span>
+                </a>
+                <p>Where every bloom tells a story. Handcrafted luxury florals for life's most meaningful moments.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2M12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.1 1.3C1.3 2.6.9 3.3.6 4.1.3 4.9.1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.2.5 3 .3.8.7 1.5 1.3 2.1.7.7 1.3 1 2.1 1.3.8.3 1.7.5 3 .5C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c1.3-.1 2.2-.2 3-.5.8-.3 1.5-.7 2.1-1.3.7-.7 1-1.3 1.3-2.1.3-.8.5-1.7.5-3 .1-1.3.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.2-.5-3-.3-.8-.7-1.5-1.3-2.1-.7-.7-1.3-1-2.1-1.3-.8-.3-1.7-.5-3-.5C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-10.8a1.4 1.4 0 100 2.8 1.4 1.4 0 000-2.8z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12h3.047V9.356c0-3.007 1.792-4.668 4.533-4.668 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874V12h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Pinterest">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345c-.091.379-.293 1.194-.333 1.361-.052.22-.174.266-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter / X">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#bouquets">Our Bouquets</a></li>
+                    <li><a href="#occasions">Shop by Occasion</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a href="#">Delivery Policy</a></li>
+                    <li><a href="#">Return & Refund</a></li>
+                    <li><a href="#">Care Guide</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay in Bloom 🌸</h4>
+                <p>Subscribe for exclusive offers, seasonal arrangements & floral inspiration.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
         </div>
-
-        <div>
-          <h4>Policies</h4>
-          <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Cancellation</a></li>
-            <li><a href="#">Cookie Policy</a></li>
-          </ul>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 FRAGRANCE. All rights reserved. Crafted with 🌸 and love.</p>
+            </div>
         </div>
-      </div>
+    </footer>
 
-      <div class="footer-bottom">
-        &copy; 2026 <span class="gold">Forever</span>. All rights reserved. Crafted with elegance.
-      </div>
+    <!-- ===== CART NOTIFICATION ===== -->
+    <div id="cart-notification" class="cart-notification">
+        <span class="cart-emoji">🛒</span>
+        <p id="cart-message">Item added to cart!</p>
     </div>
-  </footer>
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

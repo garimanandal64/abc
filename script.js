@@ -1,313 +1,461 @@
-/* ============================================================
-   Forever Luxury Hotel — script.js
-   Interactivity: Loader · Navbar · Parallax · Reveal · Slider
-                  Lightbox · Form Validation · Smooth Scrolling
-   ============================================================ */
+/* ================================================
+   FRAGRANCE — Premium Flower Shop
+   script.js — All Interactivity & Animations
+   ================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  /* --------------------------------------------------------
-     1. PAGE LOADER
-     -------------------------------------------------------- */
-  const loader = document.getElementById('page-loader');
-  window.addEventListener('load', () => {
-    setTimeout(() => loader.classList.add('hidden'), 1200);
-  });
 
-  /* --------------------------------------------------------
-     2. NAVBAR – Transparent → Solid on scroll
-     -------------------------------------------------------- */
-  const navbar = document.getElementById('navbar');
-
-  const handleNavScroll = () => {
-    if (window.scrollY > 80) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  };
-
-  window.addEventListener('scroll', handleNavScroll);
-  handleNavScroll(); // Run once on load
-
-  /* --------------------------------------------------------
-     3. MOBILE NAV TOGGLE
-     -------------------------------------------------------- */
-  const navToggle = document.getElementById('navToggle');
-  const navLinks  = document.getElementById('navLinks');
-
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navLinks.classList.toggle('open');
-  });
-
-  // Close mobile nav when a link is clicked
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.classList.remove('active');
-      navLinks.classList.remove('open');
-    });
-  });
-
-  /* --------------------------------------------------------
-     4. SMOOTH SCROLL for anchor links
-     -------------------------------------------------------- */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        const offset = navbar.offsetHeight + 10;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
-  });
-
-  /* --------------------------------------------------------
-     5. HERO PARALLAX EFFECT
-     -------------------------------------------------------- */
-  const heroBg = document.getElementById('heroBg');
-
-  const handleParallax = () => {
-    if (heroBg && window.scrollY < window.innerHeight) {
-      const offset = window.scrollY * 0.4;
-      heroBg.style.transform = `translateY(${offset}px) scale(1.05)`;
-    }
-  };
-
-  window.addEventListener('scroll', handleParallax);
-
-  /* --------------------------------------------------------
-     6. SCROLL REVEAL ANIMATIONS
-     -------------------------------------------------------- */
-  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target); // Animate only once
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -40px 0px'
-  });
-
-  revealElements.forEach(el => revealObserver.observe(el));
-
-  /* --------------------------------------------------------
-     7. TESTIMONIAL SLIDER
-     -------------------------------------------------------- */
-  const slides = document.querySelectorAll('.testimonial-slide');
-  const dots   = document.querySelectorAll('.testimonial-dot');
-  let currentSlide = 0;
-  let slideInterval;
-
-  const goToSlide = (index) => {
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-
-    currentSlide = (index + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-  };
-
-  const nextSlide = () => goToSlide(currentSlide + 1);
-
-  const startAutoSlide = () => {
-    slideInterval = setInterval(nextSlide, 5000);
-  };
-
-  const stopAutoSlide = () => clearInterval(slideInterval);
-
-  // Dot navigation
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      stopAutoSlide();
-      goToSlide(Number(dot.dataset.slide));
-      startAutoSlide();
-    });
-  });
-
-  startAutoSlide();
-
-  /* --------------------------------------------------------
-     8. GALLERY LIGHTBOX
-     -------------------------------------------------------- */
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  const lightbox     = document.getElementById('lightbox');
-  const lightboxImg  = document.getElementById('lightboxImg');
-  const lightboxClose = document.getElementById('lightboxClose');
-  const lightboxPrev  = document.getElementById('lightboxPrev');
-  const lightboxNext  = document.getElementById('lightboxNext');
-  let lightboxIndex   = 0;
-
-  // Collect all gallery image sources
-  const gallerySrcs = Array.from(galleryItems).map(item =>
-    item.querySelector('img').src
-  );
-
-  const openLightbox = (index) => {
-    lightboxIndex = index;
-    lightboxImg.src = gallerySrcs[lightboxIndex];
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeLightbox = () => {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-  };
-
-  galleryItems.forEach(item => {
-    item.addEventListener('click', () => {
-      openLightbox(Number(item.dataset.index));
-    });
-  });
-
-  lightboxClose.addEventListener('click', closeLightbox);
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  lightboxPrev.addEventListener('click', (e) => {
-    e.stopPropagation();
-    lightboxIndex = (lightboxIndex - 1 + gallerySrcs.length) % gallerySrcs.length;
-    lightboxImg.src = gallerySrcs[lightboxIndex];
-  });
-
-  lightboxNext.addEventListener('click', (e) => {
-    e.stopPropagation();
-    lightboxIndex = (lightboxIndex + 1) % gallerySrcs.length;
-    lightboxImg.src = gallerySrcs[lightboxIndex];
-  });
-
-  // Keyboard navigation for lightbox
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft')  lightboxPrev.click();
-    if (e.key === 'ArrowRight') lightboxNext.click();
-  });
-
-  /* --------------------------------------------------------
-     9. BOOKING FORM VALIDATION
-     -------------------------------------------------------- */
-  const form = document.getElementById('bookingForm');
-
-  const validateField = (field) => {
-    const group = field.closest('.form-group');
-    let valid = true;
-
-    if (field.required && !field.value.trim()) {
-      valid = false;
-    }
-
-    // Email check
-    if (field.type === 'email' && field.value.trim()) {
-      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRe.test(field.value.trim())) valid = false;
-    }
-
-    if (valid) {
-      group.classList.remove('invalid');
-    } else {
-      group.classList.add('invalid');
-    }
-
-    return valid;
-  };
-
-  // Live validation on blur
-  form.querySelectorAll('input, select').forEach(field => {
-    field.addEventListener('blur', () => validateField(field));
-    field.addEventListener('input', () => {
-      if (field.closest('.form-group').classList.contains('invalid')) {
-        validateField(field);
-      }
-    });
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const fields = form.querySelectorAll('input, select');
-    let allValid = true;
-
-    fields.forEach(field => {
-      if (!validateField(field)) allValid = false;
+    // ===== PAGE LOADER =====
+    const loader = document.getElementById('page-loader');
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loader.classList.add('loaded');
+        }, 2000);
     });
 
-    // Date logic: check-out must be after check-in
-    const checkIn  = document.getElementById('checkIn');
-    const checkOut = document.getElementById('checkOut');
-    if (checkIn.value && checkOut.value && checkOut.value <= checkIn.value) {
-      checkOut.closest('.form-group').classList.add('invalid');
-      checkOut.closest('.form-group').querySelector('.error-msg').textContent =
-        'Check-out must be after check-in';
-      allValid = false;
+    // Fallback: remove loader after 3s even if images haven't loaded
+    setTimeout(() => {
+        loader.classList.add('loaded');
+    }, 3500);
+
+    // ===== FLOATING PETALS ANIMATION =====
+    const petalsContainer = document.getElementById('petals-container');
+    const petalEmojis = ['🌸', '🌺', '🌷', '💮', '🏵️', '✿', '❀'];
+
+    function createPetal() {
+        const petal = document.createElement('span');
+        petal.classList.add('petal');
+        petal.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+        petal.style.left = Math.random() * 100 + '%';
+        petal.style.fontSize = (0.8 + Math.random() * 1.0) + 'rem';
+        petal.style.animationDuration = (8 + Math.random() * 12) + 's';
+        petal.style.animationDelay = Math.random() * 5 + 's';
+        petal.style.opacity = 0.2 + Math.random() * 0.4;
+        petalsContainer.appendChild(petal);
+
+        // Remove petal after animation
+        const duration = parseFloat(petal.style.animationDuration) + parseFloat(petal.style.animationDelay);
+        setTimeout(() => {
+            petal.remove();
+        }, duration * 1000);
     }
 
-    if (allValid) {
-      // Success feedback
-      const btn = form.querySelector('.btn');
-      const originalText = btn.textContent;
-      btn.textContent = '✓ Reservation Confirmed!';
-      btn.style.background = 'linear-gradient(135deg, #1a6b4a, #2a8c62)';
-      btn.style.color = '#fff';
-
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = '';
-        btn.style.color = '';
-        form.reset();
-        form.querySelectorAll('.form-group').forEach(g => g.classList.remove('invalid'));
-      }, 3000);
+    // Create initial petals
+    for (let i = 0; i < 8; i++) {
+        setTimeout(createPetal, i * 600);
     }
-  });
 
-  /* --------------------------------------------------------
-     10. ACTIVE NAV LINK HIGHLIGHTING
-     -------------------------------------------------------- */
-  const sections = document.querySelectorAll('section[id]');
-  const navAnchors = document.querySelectorAll('.nav-links a');
+    // Continue creating petals
+    setInterval(createPetal, 3000);
 
-  const highlightNav = () => {
-    const scrollY = window.scrollY + 200;
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      const id = section.getAttribute('id');
+    // ===== STICKY NAVBAR =====
+    const navbar = document.getElementById('navbar');
+    const heroSection = document.getElementById('hero');
 
-      if (scrollY >= top && scrollY < top + height) {
-        navAnchors.forEach(a => {
-          a.classList.remove('active');
-          if (a.getAttribute('href') === `#${id}`) {
-            a.classList.add('active');
-          }
+    function handleScroll() {
+        if (window.scrollY > 80) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // ===== MOBILE NAVIGATION =====
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('open');
+        document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('open');
+            document.body.style.overflow = '';
         });
-      }
     });
-  };
 
-  window.addEventListener('scroll', highlightNav);
+    // ===== ACTIVE NAV LINK HIGHLIGHT =====
+    const sections = document.querySelectorAll('section[id]');
 
-  /* --------------------------------------------------------
-     11. SET MINIMUM DATES FOR BOOKING
-     -------------------------------------------------------- */
-  const today = new Date().toISOString().split('T')[0];
-  const checkInEl = document.getElementById('checkIn');
-  const checkOutEl = document.getElementById('checkOut');
+    function updateActiveLink() {
+        const scrollPos = window.scrollY + 150;
+        sections.forEach(section => {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            const id = section.getAttribute('id');
+            const link = document.querySelector(`.nav-links a[href="#${id}"]`);
 
-  if (checkInEl)  checkInEl.setAttribute('min', today);
-  if (checkOutEl) checkOutEl.setAttribute('min', today);
-
-  checkInEl.addEventListener('change', () => {
-    checkOutEl.setAttribute('min', checkInEl.value);
-    if (checkOutEl.value && checkOutEl.value <= checkInEl.value) {
-      checkOutEl.value = '';
+            if (link) {
+                if (scrollPos >= top && scrollPos < top + height) {
+                    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            }
+        });
     }
-  });
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+
+    // ===== SMOOTH SCROLLING =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if (target) {
+                const offset = 80;
+                const targetPosition = target.offsetTop - offset;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // ===== SCROLL REVEAL ANIMATIONS =====
+    const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Stagger animation for grid items
+                const delay = entry.target.style.getPropertyValue('--delay') || '0s';
+                entry.target.style.transitionDelay = delay;
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ===== COUNTER ANIMATION =====
+    const statNumbers = document.querySelectorAll('.stat-number');
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(el => counterObserver.observe(el));
+
+    function animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.textContent = target.toLocaleString() + (target >= 100 && target < 1000 ? '' : target >= 1000 ? '+' : '%');
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current).toLocaleString();
+            }
+        }, 16);
+    }
+
+    // ===== LIGHTBOX GALLERY =====
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    let currentImageIndex = 0;
+    const galleryImages = [];
+
+    galleryItems.forEach((item, index) => {
+        const fullSrc = item.getAttribute('data-full');
+        galleryImages.push(fullSrc);
+
+        item.addEventListener('click', () => {
+            currentImageIndex = index;
+            openLightbox(fullSrc);
+        });
+    });
+
+    function openLightbox(src) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(direction) {
+        currentImageIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+        lightboxImg.style.opacity = '0';
+        lightboxImg.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            lightboxImg.src = galleryImages[currentImageIndex];
+            lightboxImg.style.opacity = '1';
+            lightboxImg.style.transform = 'scale(1)';
+        }, 200);
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+    lightboxNext.addEventListener('click', () => navigateLightbox(1));
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+
+    // ===== TESTIMONIAL SLIDER =====
+    const testimonialTrack = document.getElementById('testimonial-track');
+    const testimonialDots = document.getElementById('testimonial-dots');
+    const testimonialCards = testimonialTrack.querySelectorAll('.testimonial-card');
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    // Create dots
+    testimonialCards.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.classList.add('testimonial-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.setAttribute('aria-label', `Go to testimonial ${index + 1}`);
+        dot.addEventListener('click', () => goToSlide(index));
+        testimonialDots.appendChild(dot);
+    });
+
+    function goToSlide(index) {
+        currentSlide = index;
+        testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+
+        // Update dots
+        document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        goToSlide((currentSlide + 1) % testimonialCards.length);
+    }
+
+    // Auto-slide
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    startAutoSlide();
+
+    // Pause on hover
+    const testimonialSlider = document.querySelector('.testimonial-slider');
+    testimonialSlider.addEventListener('mouseenter', stopAutoSlide);
+    testimonialSlider.addEventListener('mouseleave', startAutoSlide);
+
+    // Touch swipe for testimonials
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    testimonialSlider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoSlide();
+    }, { passive: true });
+
+    testimonialSlider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                goToSlide((currentSlide + 1) % testimonialCards.length);
+            } else {
+                goToSlide((currentSlide - 1 + testimonialCards.length) % testimonialCards.length);
+            }
+        }
+        startAutoSlide();
+    }, { passive: true });
+
+    // ===== ADD TO CART =====
+    const cartButtons = document.querySelectorAll('.btn-cart');
+    const cartNotification = document.getElementById('cart-notification');
+    const cartMessage = document.getElementById('cart-message');
+
+    cartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const name = button.getAttribute('data-name');
+            const price = button.getAttribute('data-price');
+
+            cartMessage.textContent = `${name} ($${price}) added to cart!`;
+            cartNotification.classList.add('show');
+
+            // Button animation
+            button.textContent = '✓ Added';
+            button.style.background = 'var(--sage)';
+            button.style.color = 'var(--white)';
+            button.style.borderColor = 'var(--sage)';
+
+            setTimeout(() => {
+                button.textContent = 'Add to Cart';
+                button.style.background = '';
+                button.style.color = '';
+                button.style.borderColor = '';
+            }, 2000);
+
+            setTimeout(() => {
+                cartNotification.classList.remove('show');
+            }, 3000);
+        });
+    });
+
+    // ===== FORM VALIDATION =====
+    const orderForm = document.getElementById('order-form');
+    const formSuccess = document.getElementById('form-success');
+
+    // Set minimum date to today
+    const deliveryDateInput = document.getElementById('delivery-date');
+    const today = new Date().toISOString().split('T')[0];
+    deliveryDateInput.setAttribute('min', today);
+
+    function validateField(field, errorId, message) {
+        const errorEl = document.getElementById(errorId);
+        if (!field.value.trim()) {
+            field.classList.add('error');
+            errorEl.textContent = message;
+            return false;
+        }
+        field.classList.remove('error');
+        errorEl.textContent = '';
+        return true;
+    }
+
+    function validateEmail(field, errorId) {
+        const errorEl = document.getElementById(errorId);
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!field.value.trim()) {
+            field.classList.add('error');
+            errorEl.textContent = 'Email is required';
+            return false;
+        }
+        if (!emailRegex.test(field.value)) {
+            field.classList.add('error');
+            errorEl.textContent = 'Please enter a valid email';
+            return false;
+        }
+        field.classList.remove('error');
+        errorEl.textContent = '';
+        return true;
+    }
+
+    function validatePhone(field, errorId) {
+        const errorEl = document.getElementById(errorId);
+        const phoneRegex = /^[\d\s\-\(\)\+]{7,15}$/;
+        if (!field.value.trim()) {
+            field.classList.add('error');
+            errorEl.textContent = 'Phone number is required';
+            return false;
+        }
+        if (!phoneRegex.test(field.value)) {
+            field.classList.add('error');
+            errorEl.textContent = 'Please enter a valid phone number';
+            return false;
+        }
+        field.classList.remove('error');
+        errorEl.textContent = '';
+        return true;
+    }
+
+    // Real-time validation on blur
+    document.getElementById('name').addEventListener('blur', function () {
+        validateField(this, 'name-error', 'Name is required');
+    });
+    document.getElementById('email').addEventListener('blur', function () {
+        validateEmail(this, 'email-error');
+    });
+    document.getElementById('phone').addEventListener('blur', function () {
+        validatePhone(this, 'phone-error');
+    });
+    deliveryDateInput.addEventListener('blur', function () {
+        validateField(this, 'date-error', 'Delivery date is required');
+    });
+
+    // Clear error on input
+    orderForm.querySelectorAll('input, textarea').forEach(field => {
+        field.addEventListener('input', () => {
+            field.classList.remove('error');
+            const errorEl = field.parentElement.querySelector('.form-error');
+            if (errorEl) errorEl.textContent = '';
+        });
+    });
+
+    // Form submission
+    orderForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nameField = document.getElementById('name');
+        const emailField = document.getElementById('email');
+        const phoneField = document.getElementById('phone');
+        const dateField = document.getElementById('delivery-date');
+
+        const isNameValid = validateField(nameField, 'name-error', 'Name is required');
+        const isEmailValid = validateEmail(emailField, 'email-error');
+        const isPhoneValid = validatePhone(phoneField, 'phone-error');
+        const isDateValid = validateField(dateField, 'date-error', 'Delivery date is required');
+
+        if (isNameValid && isEmailValid && isPhoneValid && isDateValid) {
+            formSuccess.classList.add('show');
+            orderForm.reset();
+
+            // Scroll to success message
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            setTimeout(() => {
+                formSuccess.classList.remove('show');
+            }, 6000);
+        }
+    });
+
+    // ===== NEWSLETTER FORM =====
+    const newsletterForm = document.getElementById('newsletter-form');
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = newsletterForm.querySelector('input');
+        const btn = newsletterForm.querySelector('button');
+
+        if (input.value.trim()) {
+            btn.textContent = '✓ Subscribed!';
+            btn.style.background = 'var(--sage)';
+            input.value = '';
+
+            setTimeout(() => {
+                btn.textContent = 'Subscribe';
+                btn.style.background = '';
+            }, 3000);
+        }
+    });
+
+    // ===== INITIAL CHECK: Run scroll-dependent functions on load =====
+    handleScroll();
+    updateActiveLink();
 });
